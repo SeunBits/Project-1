@@ -164,23 +164,66 @@ SELECT Product, SUM("Total_Sales") AS Total_Sales
 ```
 
      2.    Number of sales transactions in each region.
-     ```
+```
 SELECT Region, COUNT(OrderID) AS Transaction_Count
 FROM CapstoneSales
 GROUP BY Region;
 ```
 
-find the highest-selling product by total sales value.
-o
-calculate total revenue per product.
-o
-calculate monthly sales totals for the current year.
-o
-find the top 5 customers by total purchase amount.
-o
-calculate the percentage of total sales contributed by each region.
-o
-identify products with no sales in the last quarter.
+     3.     Highest-selling product by total sales value.
+```
+SELECT TOP 1 Product, SUM("Total_Sales") AS Total_Sales
+FROM CapstoneSales
+GROUP BY Product
+ORDER BY Total_Sales DESC;
+```
+
+     4.    Total revenue per product.
+```
+SELECT Product, SUM("Total_Sales") AS Total_Revenue
+FROM CapstoneSales
+GROUP BY Product;
+```
+
+     5.     Monthly sales totals for the current year.
+```
+SELECT FORMAT(OrderDate, 'yyyy-MM') AS Month, 
+       SUM("Total_Sales") AS Monthly_Sales
+FROM CapstoneSales
+WHERE YEAR(OrderDate) = YEAR(GETDATE())
+GROUP BY FORMAT(OrderDate, 'yyyy-MM')
+ORDER BY Month;
+```
+
+     6.     Top 5 customers by total purchase amount.
+```
+SELECT TOP 5  "Customer_Id", SUM("Total_Sales") AS Total_Purchase
+FROM CapstoneSales
+GROUP BY "Customer_Id"
+ORDER BY Total_Purchase DESC
+```
+
+     7.     The percentage of total sales contributed by each region.
+```
+SELECT Region,
+       SUM("Total_Sales") AS Regional_Sales,
+       (CAST(SUM("Total_Sales") AS FLOAT) / 
+        CAST((SELECT SUM("Total_Sales") FROM CapstoneSales) AS FLOAT) * 100) AS Sales_Percentage
+FROM CapstoneSales
+GROUP BY Region;
+```
+
+     8.     Products with no sales in the last quarter.
+```
+SELECT Product
+FROM CapstoneSales
+WHERE Product NOT IN (
+    SELECT Product
+    FROM CapstoneSales
+    WHERE OrderDate >= DATEADD(MONTH, -3, GETDATE())
+)
+GROUP BY Product;
+```
 
 
 ### DATA VISUALIZATION
