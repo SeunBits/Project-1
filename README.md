@@ -32,4 +32,13 @@ This project focuses on analyzing the sales performance of a retail store using 
    -  Sales Data csv file
 
  ### TOOLS USED
-
+   -   Microsoft Excel [Download Here](https://www.microsoft.com)
+          - For Data Cleaning
+          - For Analysis
+          - For data Visualization
+   -   SQL - Structured Query Language for Data Quering
+   -   Github for Portfolio building
+   -   Microsoft Power BI
+          - Data Cleaning
+          - Analysis
+          - Visualization
