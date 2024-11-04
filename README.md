@@ -4,6 +4,21 @@ Documentation of my 1st Project in Data Analysis
 
 ### PROJECT TITLE: Sales Performance Analysis for a Retail Store
 
+### OUTLINE
+[PROJECT OVERVIEW](#project-overview)
+
+[DATA SOURCES](#data-sources)
+
+[TOOLS USED](#tools-used)
+
+[DATA CLEANING AND PREPARATIONS](#data-cleaning-and-preparations)
+
+[EXPLORATORY DATA ANALYSIS](#exploratory-data-analysis)
+
+[DATA ANALYSIS](#data-analysis)
+
+[DATA VISUALIZATION](#data-visualization)
+
 ### PROJECT OVERVIEW
 This project focuses on analyzing the sales performance of a retail store using data analysis tools like Excel, SQL, and Power BI. The objective is to derive key insights such as top-selling products, regional sales performance, and monthly trends. The final deliverable is an interactive Power BI dashboard that presents these insights in a visually appealing and informative manner.
      -  This project demonstrates proficiency in data analysis, SQL querying, and data visualization, culminating in a comprehensive sales performance dashboard.
@@ -100,6 +115,40 @@ This is where I included some basic lines of code or queries and some of the DAX
 
 ![Screenshot 2024-11-04 121906](https://github.com/user-attachments/assets/4543e799-c1dd-44c2-9a0b-0c7da552aca5)
 
+     9.     Average sales per product
+This is done by using the excel function AVERAGEIF 
+
+## =AVERAGEIF(range,criteria,[average_range])
+
+WHERE;
+
+    - Range: the range of cells to evaluate. The column that has the condition, in this sense product
+    - Criteria: the condition that must be met. This can be any of the 6 products in this analysis. This was done for each of the region.
+    - Average_range: the actual cell to average. The column that has the number to be summed, in this case was the Total sales.
+
+    SHIRT	=AVERAGEIF(C2:C50001,C2,H1:H50001)
+    SHOES	=AVERAGEIF(C2:C50001,C15,H1:H50001)
+    HAT	=AVERAGEIF(C2:C50001,C49981,H1:H50001)
+    SOCKS	=AVERAGEIF(C2:C50001,C49977,H1:H50001)
+    JACKET=AVERAGEIF(C2:C50001,C49978,H1:H50001)
+    SHOES	=AVERAGEIF(C2:C50001,C7,H1:H50001)
+
+
+     10.     Total revenue by region.
+This is done by using the excel function SUMIF 
+
+## =SUMIF(range,criteria,[sum_range])
+
+WHERE;
+
+     •	Range: the range of cells to evaluate. The column that has the condition, in this sense region
+     •	Criteria: the condition that must be met. This can be any of the 4 regions in this analysis. This was done for each of the region.
+     •	Sum_range: the actual cell to sum. The column that has the number to be summed, in this case was the Total sales.
+     
+     NORTH	=SUMIF(D2:D50001,D2,H2:H50001) 
+     SOUTH	=SUMIF(D2:D50001,D3,H2:H50001)
+     EAST	     =SUMIF(D2:D50001,D4,H2:H50001)
+     WEST	     =SUMIF(D2:D50001,D5,H2:H50001)
 
 ```
 SELECT Region, COUNT(OrderID) AS Transaction_Count
