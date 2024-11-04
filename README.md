@@ -126,13 +126,14 @@ WHERE;
     - Criteria: the condition that must be met. This can be any of the 6 products in this analysis. This was done for each of the region.
     - Average_range: the actual cell to average. The column that has the number to be summed, in this case was the Total sales.
 
-    SHIRT	=AVERAGEIF(C2:C50001,C2,H1:H50001)
-    SHOES	=AVERAGEIF(C2:C50001,C15,H1:H50001)
-    HAT	=AVERAGEIF(C2:C50001,C49981,H1:H50001)
-    SOCKS	=AVERAGEIF(C2:C50001,C49977,H1:H50001)
-    JACKET=AVERAGEIF(C2:C50001,C49978,H1:H50001)
-    SHOES	=AVERAGEIF(C2:C50001,C7,H1:H50001)
+    SHIRT	=AVERAGEIF(C2:C50001,C2,H2:H50001)
+    SHOES	=AVERAGEIF(C2:C50001,C15,H2:H50001)
+    HAT	=AVERAGEIF(C2:C50001,C49981,H2:H50001)
+    SOCKS	=AVERAGEIF(C2:C50001,C49977,H2:H50001)
+    JACKET=AVERAGEIF(C2:C50001,C49978,H2:H50001)
+    SHOES	=AVERAGEIF(C2:C50001,C7,H2:H50001)
 
+![Screenshot 2024-11-04 131902](https://github.com/user-attachments/assets/0bfbc20f-b596-429a-9fcd-6866bee4e289)
 
      10.     Total revenue by region.
 This is done by using the excel function SUMIF 
@@ -145,16 +146,42 @@ WHERE;
      •	Criteria: the condition that must be met. This can be any of the 4 regions in this analysis. This was done for each of the region.
      •	Sum_range: the actual cell to sum. The column that has the number to be summed, in this case was the Total sales.
      
-     NORTH	=SUMIF(D2:D50001,D2,H2:H50001) 
-     SOUTH	=SUMIF(D2:D50001,D3,H2:H50001)
-     EAST	     =SUMIF(D2:D50001,D4,H2:H50001)
-     WEST	     =SUMIF(D2:D50001,D5,H2:H50001)
+     NORTH     =SUMIF(D2:D50001,D2,H2:H50001) 
+     SOUTH     =SUMIF(D2:D50001,D3,H2:H50001)
+     EAST     =SUMIF(D2:D50001,D4,H2:H50001)
+     WEST     =SUMIF(D2:D50001,D5,H2:H50001)
 
+![Screenshot 2024-11-04 131440](https://github.com/user-attachments/assets/cf9aab3f-8120-4698-b0a6-c8ad61190d90)
+
+
+#### Data Analysis with SQL
+
+     1.     Total sales for each product category.
 ```
+SELECT Product, SUM("Total_Sales") AS Total_Sales
+     FROM CapstoneSales
+     GROUP BY Product;
+```
+
+     2.    Number of sales transactions in each region.
+     ```
 SELECT Region, COUNT(OrderID) AS Transaction_Count
 FROM CapstoneSales
 GROUP BY Region;
 ```
+
+find the highest-selling product by total sales value.
+o
+calculate total revenue per product.
+o
+calculate monthly sales totals for the current year.
+o
+find the top 5 customers by total purchase amount.
+o
+calculate the percentage of total sales contributed by each region.
+o
+identify products with no sales in the last quarter.
+
 
 ### DATA VISUALIZATION
 
