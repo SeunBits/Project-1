@@ -42,3 +42,36 @@ This project focuses on analyzing the sales performance of a retail store using 
           - Data Cleaning
           - Analysis
           - Visualization
+
+### DATA CLEANING AND PREPARATIONS
+In the initial phase of Data Cleaning and preparations, i performed the following action;
+  -   Data loading and Inspection
+  -   Handling missing variables
+  -   Data Cleaning and formatting
+
+### EXPLORATORY DATA ANALYSIS
+This involved exploring of the Data to answer some questions about the Data such as;
+  -   Top 3 Regions by Sales
+  -   Bottom 3 Products by Quantity Sold
+  -   Average Total Sales per product
+  -   Percentage of Total Sales by Product
+  -   Sales by Month, detailed for the years 2023 and 2024
+  -   Calculated metrics such as average sales per product and total revenue by region.
+  -   Total sales by product category
+  -   Regional transaction counts
+  -   Highest-selling products
+  -   Monthly sales trends.
+
+### DATA ANALYSIS
+This is where I included some basic lines of code or queries and some of the DAX expressions used during the analysis;
+
+#### Data Analysis with Excel
+---
+
+
+```
+SELECT Region, COUNT(OrderID) AS Transaction_Count
+FROM CapstoneSales
+GROUP BY Region;
+```
+
