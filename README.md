@@ -162,6 +162,7 @@ SELECT Product, SUM("Total_Sales") AS Total_Sales
      FROM CapstoneSales
      GROUP BY Product;
 ```
+![Screenshot 2024-11-04 202241](https://github.com/user-attachments/assets/e521d5d6-2b7c-48e6-b1f0-795d63d07cb9)
 
      2.    Number of sales transactions in each region.
 ```
@@ -169,6 +170,7 @@ SELECT Region, COUNT(OrderID) AS Transaction_Count
 FROM CapstoneSales
 GROUP BY Region;
 ```
+![Screenshot 2024-11-04 202351](https://github.com/user-attachments/assets/faefda03-a82e-4ba6-9bfe-34f52e4a763c)
 
      3.     Highest-selling product by total sales value.
 ```
@@ -177,6 +179,7 @@ FROM CapstoneSales
 GROUP BY Product
 ORDER BY Total_Sales DESC;
 ```
+![Screenshot 2024-11-04 203340](https://github.com/user-attachments/assets/220cbac7-15c2-4367-804e-7720ba8b15b5)
 
      4.    Total revenue per product.
 ```
@@ -184,6 +187,7 @@ SELECT Product, SUM("Total_Sales") AS Total_Revenue
 FROM CapstoneSales
 GROUP BY Product;
 ```
+![Screenshot 2024-11-04 202440](https://github.com/user-attachments/assets/1a0a02c3-bb0c-4aa4-a4cb-4a7e8a840d6f)
 
      5.     Monthly sales totals for the current year.
 ```
@@ -194,6 +198,7 @@ WHERE YEAR(OrderDate) = YEAR(GETDATE())
 GROUP BY FORMAT(OrderDate, 'yyyy-MM')
 ORDER BY Month;
 ```
+![Screenshot 2024-11-04 203138](https://github.com/user-attachments/assets/30c0e645-064f-4a19-85df-7651577efadb)
 
      6.     Top 5 customers by total purchase amount.
 ```
@@ -202,6 +207,7 @@ FROM CapstoneSales
 GROUP BY "Customer_Id"
 ORDER BY Total_Purchase DESC
 ```
+![Screenshot 2024-11-04 202709](https://github.com/user-attachments/assets/72d9c2e5-90a1-42f6-809a-9776eaa7b981)
 
      7.     The percentage of total sales contributed by each region.
 ```
@@ -212,6 +218,7 @@ SELECT Region,
 FROM CapstoneSales
 GROUP BY Region;
 ```
+![Screenshot 2024-11-04 202918](https://github.com/user-attachments/assets/704a06d2-3d21-400d-9f34-513824598589)
 
      8.     Products with no sales in the last quarter.
 ```
@@ -224,6 +231,7 @@ WHERE Product NOT IN (
 )
 GROUP BY Product;
 ```
+![Screenshot 2024-11-04 203018](https://github.com/user-attachments/assets/db84e19a-78e2-407a-958e-2354fae8fa39)
 
 
 ### DATA VISUALIZATION
